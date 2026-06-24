@@ -1,0 +1,217 @@
+/* ==========================================================================
+   1. Global Resets & Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #005eff 0%, #a41111 45%, #ff0000 100%);
+  color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  overflow-y: auto;    
+}
+
+h1, h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* BRANDING LOGO: Fixed Top-Center Title Styling */
+.game-brand {
+  font-family: 'Arial Black', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 93, 93, 0.4);
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: -16px;
+  z-index: 20;
+  user-select: none;
+}
+
+/* ==========================================================================
+   2. Screen & Container Layouts
+   ========================================================================== */
+.screen {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Forces the login screen card to sit dead-center underneath the brand header */
+#loginScreen {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Handles the desktop arrangement for game interface elements */
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 40px 24px;
+  pointer-events: none; 
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   3. Cards Layout (Glassmorphism UI)
+   ========================================================================== */
+.card, 
+.leaderboard-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 24px 22px;
+  border-radius: 18px;
+  text-align: center;
+  width: min(92vw, 300px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+  pointer-events: auto; 
+}
+
+.leaderboard-card {
+  padding: 18px 20px;
+}
+
+/* ==========================================================================
+   4. Component Elements (Typography, Forms, Lists)
+   ========================================================================== */
+.stats {
+  margin: 14px 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.player-badge {
+  margin: 0 0 12px;
+  font-weight: 700;
+  color: #ffe082;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+input {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+#message {
+  margin-top: 12px;
+  min-height: 24px;
+  color: #e8f0ff;
+}
+
+#leaderboardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#leaderboardList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5. Buttons & Interactive Targets
+   ========================================================================== */
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.primary-btn {
+  padding: 11px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff5d5d, #d62828);
+  color: white;
+  font-size: 1rem;
+  margin-top: 8px;
+  box-shadow: 0 8px 18px rgba(214, 40, 40, 0.25);
+}
+
+#target {
+  width: 170px;
+  height: 100px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7ef29a, #22b24b);
+  color: #06210d;
+  font-size: 1rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 10;
+}
+
+#target:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+/* ==========================================================================
+   6. Media Queries & Mobile Responsiveness
+   ========================================================================== */
+@media (max-width: 900px) {
+  .game-brand {
+    font-size: 2rem;
+    margin-top: 24px;
+    margin-bottom: 0px;
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 16px;
+  }
+
+  .card,
+  .leaderboard-card {
+    width: min(90vw, 420px);
+    margin: 0 auto;
+  }
+  
+  #target {
+    top: 78%;
+  }
+}

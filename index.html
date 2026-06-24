@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Click Arena</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="game-brand">
+    CLICK ARENA
+  </header>
+
+  <div id="loginScreen" class="screen">
+    <div class="card">
+      <p>Enter your name to start the game and join the leaderboard.</p>
+      <form id="loginForm">
+        <input id="playerNameInput" type="text" placeholder="Your name" required />
+        <button class="primary-btn" type="submit">Enter Game</button>
+      </form>
+      <p id="loginMessage"></p>
+    </div>
+  </div>
+
+  <div id="gameScreen" class="screen hidden">
+    <div class="dashboard-container">
+      
+      <div class="card">
+        <div class="player-badge">Player: <span id="playerName">Guest</span></div>
+        <p>Click the button as many times as you can in 10 seconds.</p>
+        <div class="stats">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Time: <strong id="time">10</strong></span>
+          <span>Best: <strong id="best">0</strong></span>
+        </div>
+        <button id="startBtn" class="primary-btn">Start Game</button>
+        <p id="message">Press start to begin.</p>
+      </div>
+
+      <div class="leaderboard-card">
+        <h2>Live Leaderboard</h2>
+        <ol id="leaderboardList"></ol>
+      </div>
+
+    </div>
+  </div>
+
+  <button id="target" class="hidden">Click Me!</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
